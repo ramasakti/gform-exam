@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Imports\UsersImport;
+use Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
@@ -25,6 +26,13 @@ class UserController extends Controller
             'dataGuru' => $dataGuru,
             'dataKelas' => DB::table('kelas')->get()
         ]);
+    }
+
+    public function importJson()
+    {
+        $data = Storage::disk('local')->get('/peserta.json');
+        $json = json_decode($data, TRUE);
+        dd($json);
     }
 
     public function import(Request $request)

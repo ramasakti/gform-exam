@@ -49,7 +49,7 @@ class LoginController extends Controller
                         ->where('kelas_id', 'like', $kelas)
                         ->get();
         return view('dashboard', [
-            'title' => 'Dashboard',
+            'title' => 'Portal Ujian',
             'navactive' => 'dashboard',
             'dataSoal' => $dataSoal
         ]);

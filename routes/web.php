@@ -39,3 +39,18 @@ Route::get('/soal/{id}', [SoalController::class, 'detail'])->middleware('auth');
 Route::post('/store/soal', [SoalController::class, 'store'])->middleware('auth');
 Route::post('/update/soal', [SoalController::class, 'update'])->middleware('auth');
 Route::post('/delete/soal', [SoalController::class, 'delete'])->middleware('auth');
+Route::get('/json', function () {
+    $data = json_decode(file_get_contents(storage_path() . "/peserta.json"), true);
+    foreach ($data as $key) {
+        DB::table('users')
+            ->insert([
+                'username' => $key['username'],
+                'password' => bcrypt($key['password']),
+                'nama' => $key['nama_siswa'],
+                'status' => 'Siswa',
+                'kelas' => $key['kelas'],
+                'ruang' => 'Hasan',
+                'log' => NULL,
+            ]);
+    }
+});
