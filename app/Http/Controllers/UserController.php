@@ -11,7 +11,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        $dataSiswa = DB::table('users')->where('status', 'Siswa')->get();
+        if (request('ruang')) {
+            $dataSiswa = DB::table('users')->where('status', 'Siswa')->where('ruang', request('ruang'))->get();
+        }else{
+            $dataSiswa = DB::table('users')->where('status', 'Siswa')->get();
+        }
         $dataGuru = DB::table('users')->where('status', '!=', 'Siswa')->get();
         return view('user', [
             'title' => 'Daftar User',

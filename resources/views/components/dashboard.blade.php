@@ -75,7 +75,7 @@
                                     @break
                                 @case('Pengawas')
                                     <li class="{{ ($navactive === 'user' ? 'active' : '') }}">
-                                        <a href="/user"><span>User</span></a>
+                                        <a href="/user?ruang={{ session('detailUser')->ruang }}"><span>User</span></a>
                                     </li>
                                     @break
                                 @default
