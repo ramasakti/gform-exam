@@ -15,7 +15,7 @@
                 <td>{{ $siswa->username }}</td>
                 <td>{{ $siswa->nama }}</td>
                 <td>
-                    {{ session('detailUser')->kelas }}
+                    {{{ $siswa->kelas }}}
                 </td>
                 <td>{{ $siswa->log }}</td>
             </tr> 

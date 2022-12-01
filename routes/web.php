@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\UserController;
@@ -17,7 +19,10 @@ use App\Http\Controllers\KelasController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    if ($request->session()->has('detailUser')) {
+        return redirect('/dashboard');
+    }
     return view('login');
 })->name('login');
 
@@ -47,9 +52,9 @@ Route::get('/json', function () {
                 'username' => $key['username'],
                 'password' => bcrypt($key['password']),
                 'nama' => $key['nama_siswa'],
-                'status' => 'Siswa',
+                'status' => $key['status'],
                 'kelas' => $key['kelas'],
-                'ruang' => 'Hasan',
+                'ruang' => $key['ruang'],
                 'log' => NULL,
             ]);
     }

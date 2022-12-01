@@ -28,13 +28,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function importJson()
-    {
-        $data = Storage::disk('local')->get('/peserta.json');
-        $json = json_decode($data, TRUE);
-        dd($json);
-    }
-
     public function import(Request $request)
     {
         Excel::import(new UsersImport, $request->file('user'). '.xlsx')->store('temp');
@@ -65,10 +58,12 @@ class UserController extends Controller
     public function resetUser()
     {
         DB::table('users')->where('status', 'Siswa')->delete();
+        return back()->with('success', 'Berhasil reset user!');
     }
 
     public function resetLogin()
     {
-        DB::table('users')->where('status', 'Siswa')->delete();
+        DB::table('users')->update(['log' => NULL]);
+        return back()->with('success', 'Berhasil membersihkan log user!');
     }
 }
