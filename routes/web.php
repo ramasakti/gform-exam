@@ -24,6 +24,9 @@ Route::get('/', function () {
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->middleware('auth');
 Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
+Route::get('/home', function () {
+    return redirect('/dashboard');
+})->middleware('auth');
 
 Route::get('/user', [UserController::class, 'index'])->middleware('auth');
 Route::post('/store/user', [UserController::class, 'store'])->middleware('auth');
