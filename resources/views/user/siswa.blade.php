@@ -15,10 +15,7 @@
                 <td>{{ $siswa->username }}</td>
                 <td>{{ $siswa->nama }}</td>
                 <td>
-                    @php
-                        $kelas = DB::table('kelas')->where('id_kelas', $siswa->kelas)->get();
-                    @endphp
-                    {{ $kelas[0]->tingkat }} {{ $kelas[0]->paralel }}
+                    {{ session('detailUser')->kelas }}
                 </td>
                 <td>{{ $siswa->log }}</td>
             </tr> 
