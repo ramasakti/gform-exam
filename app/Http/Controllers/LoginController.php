@@ -29,7 +29,7 @@ class LoginController extends Controller
                 ]);
             return redirect()->intended('/dashboard');
         }else{
-            return back()->with('gagal', 'Username atau Password salah!');
+            return back()->with('fail', 'Username atau Password salah!');
         }
     }
 

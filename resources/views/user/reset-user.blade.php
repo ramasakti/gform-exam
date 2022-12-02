@@ -4,10 +4,7 @@
         <h5>Hapus Semua User?</h5>
         <div class="uk-modal-footer uk-text-right">
             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary">
-                Ya
-                <a href="/resetuser"></a>
-            </button>
+            <a href="/resetuser"><button class="uk-button uk-button-primary">Ya</button></a>
         </div>
     </div>
 </div>

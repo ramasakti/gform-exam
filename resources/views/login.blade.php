@@ -17,6 +17,12 @@
 <body>
     <div class="container uk-margin-large my-3"> 
         <h4>Login </h4>
+        @if (session()->has('fail'))
+            <div class="uk-alert-danger" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p>{{ session('fail') }}</p>
+            </div>
+        @endif
         <form action="/login" method="POST">
             @csrf			 
             <div class="mb-3 align-self-center">
