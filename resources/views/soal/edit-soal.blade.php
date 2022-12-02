@@ -12,6 +12,10 @@
                 <input class="uk-input" name="url" type="text" placeholder="URL" aria-label="URL" value="{{ $soal->url }}" required>
             </div>
             <div class="uk-margin">
+                Tanggal
+                <input class="uk-input" name="tgl" type="date" placeholder="Tanggal" aria-label="Tanggal" value="{{ $soal->tgl }}" required>
+            </div>
+            <div class="uk-margin">
                 Mulai
                 <input class="uk-input" name="mulai" type="time" placeholder="Mulai" aria-label="Mulai" value="{{ $soal->mulai }}" required>
             </div>
