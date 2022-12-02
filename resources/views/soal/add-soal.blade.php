@@ -11,6 +11,10 @@
                 <input class="uk-input" name="url" type="text" placeholder="URL" aria-label="URL" required>
             </div>
             <div class="uk-margin">
+                Tanggal
+                <input class="uk-input" name="tgl" type="date" placeholder="Tanggal" aria-label="Tanggal" required>
+            </div>
+            <div class="uk-margin">
                 Mulai
                 <input class="uk-input" name="mulai" type="time" placeholder="Mulai" aria-label="Mulai" required>
             </div>

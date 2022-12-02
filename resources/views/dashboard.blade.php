@@ -11,25 +11,37 @@
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                        @if (count($dataSoal) > 0)
-                            <h3 class="uk-card-title">{{ $dataSoal[0]->mapel }}</h3>
-                            <button uk-toggle="target: #modal-confirm" class="uk-button uk-margin-small uk-button-small uk-width-1-1 uk-button-primary">Mulai</button>
-                            <div id="modal-confirm" class="uk-flex-top" uk-modal>
-                                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-                                    <button class="uk-modal-close-default" type="button" uk-close></button>
-                                    <h5>Apakah anda yakin mulai mengerjakan soal?</h5>
-                                    <p>Bismillah</p>
-                                    <p class="uk-text-right">
-                                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                                        <a class="uk-button uk-button-primary" href="/soal/{{ $dataSoal[0]->id_soal }}">Mulai</a>
-                                    </p>                                
+                    @if (count($dataSoal) > 0)
+                        @foreach ($dataSoal as $soal)  
+                            <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin">
+                                <h3 class="uk-card-title">{{ $soal->mapel }}</h3>
+                                @if ($soal->mulai > date('H:i:s') and $soal->sampai > date('H:i:s'))
+                                    <p>Waktu Mengerjakan Belum Dimulai</p>
+                                @elseif ($soal->mulai < date('H:i:s') and $soal->sampai < date('H:i:s'))
+                                    <p>Expired</p>
+                                @else
+                                    @if ($soal->isactive != 1)
+                                        <p>Soal Belum Diaktivasi</p>
+                                    @else
+                                        <button uk-toggle="target: #modal-confirm" class="uk-button uk-margin-small uk-button-small uk-width-1-1 uk-button-primary">Mulai</button>
+                                    @endif
+                                @endif
+                                <div id="modal-confirm" class="uk-flex-top" uk-modal>
+                                    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                                        <h5>Apakah anda yakin mulai mengerjakan soal?</h5>
+                                        <p>Bismillah</p>
+                                        <p class="uk-text-right">
+                                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                                            <a class="uk-button uk-button-primary" href="/soal/{{ $soal->id_soal }}">Mulai</a>
+                                        </p>                                
+                                    </div>
                                 </div>
                             </div>
-                        @else
-                            <h4>Soal Belum Dirilis</h4>
-                        @endif
-                    </div>
+                        @endforeach
+                    @else
+                        <h4>Soal Belum Dirilis</h4>
+                    @endif
                 </div>
             </div>
             @break

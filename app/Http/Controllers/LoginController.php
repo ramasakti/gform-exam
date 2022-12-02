@@ -49,8 +49,9 @@ class LoginController extends Controller
     {
         $kelas = '%'. $request->session()->get('detailUser')->kelas .'%';
         $dataSoal = DB::table('soal')
-                        ->where('isactive', 1)
+                        ->where('tgl', date('Y-m-d'))
                         ->where('kelas_id', 'like', $kelas)
+                        ->orderBy('mulai', 'ASC')
                         ->get();
         $dataSiswa = DB::table('users')->where('status', 'Siswa')->where('ruang', request('ruang'))->get();
         return view('dashboard', [

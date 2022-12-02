@@ -34,6 +34,7 @@ class SoalController extends Controller
                 'id_soal' => substr(str_shuffle($character), 0, 16),
                 'mapel' => $request->mapel,
                 'url' => $request->url,
+                'tgl' => $request->tgl,
                 'mulai' => $request->mulai,
                 'sampai' => $request->sampai,
                 'isactive' => $isactive,
