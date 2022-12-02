@@ -28,7 +28,7 @@ class LoginController extends Controller
                     'log' => date('Y-m-d H:i:s')
                 ]);
             if ($detailUser[0]->status === 'Pengawas') {
-                $rdrct = '/dashboard' . $detailUser[0]->ruang;
+                $rdrct = '/dashboard?ruang=' . $detailUser[0]->ruang;
                 return redirect()->intended($rdrct);
             }
             return redirect()->intended('/dashboard');
