@@ -48,10 +48,12 @@ class LoginController extends Controller
                         ->where('isactive', 1)
                         ->where('kelas_id', 'like', $kelas)
                         ->get();
+        $dataSiswa = DB::table('users')->where('status', 'Siswa')->where('ruang', request('ruang'))->get();
         return view('dashboard', [
             'title' => 'Portal Ujian',
             'navactive' => 'dashboard',
-            'dataSoal' => $dataSoal
+            'dataSoal' => $dataSoal,
+            'dataSiswa' => $dataSiswa
         ]);
     }
 }
