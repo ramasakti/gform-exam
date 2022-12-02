@@ -16,7 +16,7 @@ class UserController extends Controller
         if (request('ruang')) {
             $dataSiswa = DB::table('users')->where('status', 'Siswa')->where('ruang', request('ruang'))->get();
         }else{
-            $dataSiswa = DB::table('users')->where('status', 'Siswa')->get();
+            $dataSiswa = DB::table('users')->where('status', 'Siswa')->orderBy('kelas', 'ASC')->get();
         }
         $dataGuru = DB::table('users')->where('status', '!=', 'Siswa')->get();
         return view('user', [

@@ -5,6 +5,7 @@
             <th>Username</th>
             <th>Nama</th>
             <th>Kelas</th>
+            <th>Ruang</th>
             <th>Log</th>
         </tr>
     </thead>
@@ -14,9 +15,8 @@
                 <td>{{ $ai++ }}</td>
                 <td>{{ $siswa->username }}</td>
                 <td>{{ $siswa->nama }}</td>
-                <td>
-                    {{{ $siswa->kelas }}}
-                </td>
+                <td>{{ $siswa->kelas }}</td>
+                <td>{{ $siswa->ruang }}</td>
                 <td>{{ $siswa->log }}</td>
             </tr> 
         @endforeach
