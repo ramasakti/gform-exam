@@ -45,7 +45,7 @@ Route::post('/store/soal', [SoalController::class, 'store'])->middleware('auth')
 Route::post('/update/soal', [SoalController::class, 'update'])->middleware('auth');
 Route::post('/delete/soal', [SoalController::class, 'delete'])->middleware('auth');
 Route::get('/json', function () {
-    $data = json_decode(file_get_contents(storage_path() . "/peserta.json"), true);
+    $data = json_decode(file_get_contents(storage_path() . "/upload/peserta.json"), true);
     foreach ($data as $key) {
         DB::table('users')
             ->insert([
@@ -58,4 +58,5 @@ Route::get('/json', function () {
                 'log' => NULL,
             ]);
     }
+    return redirect('/user');
 });

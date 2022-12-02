@@ -9,6 +9,13 @@
         <a class="uk-margin uk-margin-small-right" href="#reset-user" uk-toggle uk-icon="trash"></a>
         @include('user.reset-user')
     @endif
+
+    @if (session()->has('success'))
+        <div class="uk-alert-success" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
     
     <ul uk-tab>
         <li><a href="#">Siswa</a></li>

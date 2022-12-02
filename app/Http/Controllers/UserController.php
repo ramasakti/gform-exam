@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use DB;
+use File;
+use Storage;
 use Illuminate\Http\Request;
 use App\Imports\UsersImport;
-use Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
@@ -30,8 +31,15 @@ class UserController extends Controller
 
     public function import(Request $request)
     {
-        Excel::import(new UsersImport, $request->file('user'). '.xlsx')->store('temp');
-        return back();
+        $request->validate([
+            'user' => 'required|mimes:json'
+        ]);
+        $file = $request->file('user');
+        $namaFile = $file->getClientOriginalName();
+        $ext = $file->getClientOriginalExtension();
+        $file->move(storage_path() . '/upload/', 'peserta.json');
+
+        return redirect('/json');
     }
 
     public function store(Request $request)
