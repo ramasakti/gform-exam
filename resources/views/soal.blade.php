@@ -13,6 +13,7 @@
                 <th>#</th>
                 <th>Mapel</th>
                 <th>Status</th>
+                <th>Tanggal</th>
                 <th>Waktu</th>
                 <th>Kelas</th>
                 <th>Handler</th>
@@ -30,6 +31,7 @@
                             {{ 'Tidak Aktif' }}
                         @endif
                     </td>
+                    <td>{{ $soal->tgl }}</td>
                     <td>{{ $soal->mulai }} - {{ $soal->sampai }}</td>
                     <td>{{ $soal->kelas_id }}</td>
                     <td>
