@@ -4,7 +4,7 @@
             <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
                 <div>
                     <p>
-                        <a class="uk-margin" href="" onclick="window.location.reload()" uk-icon="icon: refresh"></a>
+                        <a class="uk-margin" href="" onclick="window.location.reload()" uk-icon="icon: refresh; ratio: 2"></a>
                     </p>
                     <div class="uk-card uk-card-default uk-card-hover uk-card-body">
                         <h3 class="uk-card-title">Selamat Datang!</h3>
