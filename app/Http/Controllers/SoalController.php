@@ -56,6 +56,7 @@ class SoalController extends Controller
             ->update([
                 'mapel' => $request->mapel,
                 'url' => $request->url,
+                'tgl' => $request->tgl,
                 'mulai' => $request->mulai,
                 'sampai' => $request->sampai,
                 'isactive' => $isactive,
