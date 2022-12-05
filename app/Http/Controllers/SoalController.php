@@ -9,7 +9,7 @@ class SoalController extends Controller
 {
     public function index()
     {
-        $dataSoal = DB::table('soal')->get();
+        $dataSoal = DB::table('soal')->orderBy('kelas_id', 'ASC')->get();
         $dataKelas = DB::table('kelas')->orderBy('tingkat', 'ASC')->orderBy('paralel', 'ASC')->get();
         return view('soal', [
             'title' => 'Daftar Soal',
