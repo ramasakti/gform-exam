@@ -5,7 +5,7 @@
         <form action="/import" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="formFile" class="form-label">Upload JSON File</label>
+                <label for="formFile" class="form-label">Upload XLSX File</label>
                 <input class="form-control" name="user" type="file" id="formFile">
             </div>
             <button type="submit" class="uk-button uk-button-primary uk-width-1-1">UPLOAD</button>

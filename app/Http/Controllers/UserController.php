@@ -42,6 +42,12 @@ class UserController extends Controller
         return redirect('/json');
     }
 
+    public function importExcel(Request $request)
+    {
+        Excel::import(new UsersImport, $request->file('user')->store('files'));
+        return back();
+    }
+
     public function store(Request $request)
     {
         if (!$request->kelas) {

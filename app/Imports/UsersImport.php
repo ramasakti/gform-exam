@@ -20,6 +20,7 @@ class UsersImport implements ToModel
             'nama' => $row[2],
             'status' => $row[3],
             'kelas' => $row[4],
+            'ruang' => $row[5],
             'log' => NULL
         ]);
     }
