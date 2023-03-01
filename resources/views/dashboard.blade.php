@@ -9,7 +9,7 @@
                     <div class="uk-card uk-card-default uk-card-hover uk-card-body">
                         <h3 class="uk-card-title">Selamat Datang!</h3>
                         <h6>{{ session('detailUser')->nama }}</h6>
-                        <p>Kelas: {{ session('detailUser')->kelas }}</p>
+                        <p>Kelass: {{ session('detailUser')->kelas }}</p>
                         <p>Ruang: {{ session('detailUser')->ruang }}</p>
                     </div>
                 </div>
