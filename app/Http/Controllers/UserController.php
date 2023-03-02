@@ -71,7 +71,7 @@ class UserController extends Controller
 
     public function resetUser()
     {
-        DB::table('users')->where('status', 'Siswa')->delete();
+        DB::table('users')->where('status', '!=', 'Admin')->delete();
         return back()->with('success', 'Berhasil reset user!');
     }
 

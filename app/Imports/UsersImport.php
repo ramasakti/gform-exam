@@ -4,6 +4,8 @@ namespace App\Imports;
 
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UsersImport implements ToModel
 {
@@ -16,7 +18,7 @@ class UsersImport implements ToModel
     {
         return new User([
             'username' => $row[0],
-            'password' => $row[1],
+            'password' => bcrypt($row[1]),
             'nama' => $row[2],
             'status' => $row[3],
             'kelas' => $row[4],

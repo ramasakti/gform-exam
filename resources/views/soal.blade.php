@@ -9,7 +9,7 @@
     @endif
     <table class="uk-table uk-table-hover uk-table-divider">
         <thead>
-            <tr>s
+            <tr>
                 <th>#</th>
                 <th>Mapel</th>
                 <th>Status</th>
