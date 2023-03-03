@@ -4,8 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.104.2">
+    <meta name="author" content="Staf Data, Informasi, Pengembangan dan Infrastruktur Teknologi - SMA Islam Parlaugan">
+    <!-- PWA  -->
+    <meta name="theme-color" content="#FFFFFF"/>
+    <link rel="apple-touch-icon" href="{{ asset('/img/logo.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
+
     <title>Login</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -98,5 +102,13 @@
             <p class="mt-5 text-muted">Dibuat dan Dikembangkan oleh <br/><b>Staff IT Development and Infrastructure - SMA Islam Parlaungan</b></p>
         </div>
     </main>
+    <script src="{{ asset('/sw.js') }}"></script>
+        <script>
+            if (!navigator.serviceWorker.controller) {
+                navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                    console.log("Service worker has been registered for scope: " + reg.scope);
+                });
+            }
+        </script>
   </body>
 </html>
