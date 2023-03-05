@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('id_soal')->primary();
             $table->string('mapel');
             $table->text('url');
+            $table->date('tgl');
             $table->time('mulai');
             $table->time('sampai');
             $table->boolean('isactive');
