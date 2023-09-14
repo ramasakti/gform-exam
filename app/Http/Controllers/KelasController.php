@@ -17,4 +17,36 @@ class KelasController extends Controller
             'dataKelas' => $dataKelas
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $character = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        DB::table('kelas')
+            ->insert([
+                'id_kelas' => substr(str_shuffle($character), 0, 5),
+                'tingkat' => $request->tingkat,
+                'paralel' => $request->paralel,
+                'walas' => '-',
+            ]);
+        return back()->with('success', 'Berhasil menambah kelas baru!');
+    }
+
+    public function update(Request $request)
+    {
+        DB::table('kelas')
+            ->where('id_kelas', $request->id_kelas)
+            ->update([
+                'tingkat' => $request->tingkat,
+                'walas' => '-', 
+            ]);
+        return back()->with('success', 'Berhasil mengedit kelas!');
+    }
+
+    public function delete(Request $request)
+    {
+        DB::table('kelas')
+            ->where('id_kelas', $request->id_kelas)
+            ->delete();
+        return back()->with('success', 'Berhasil delete kelas!');
+    }
 }

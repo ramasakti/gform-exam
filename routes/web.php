@@ -38,6 +38,9 @@ Route::post('/store/user', [UserController::class, 'store'])->middleware('auth')
 Route::post('/import', [UserController::class, 'importExcel'])->middleware('auth');
 
 Route::get('/kelas', [KelasController::class, 'index'])->middleware('auth');
+Route::post('/kelas/store', [KelasController::class, 'store'])->middleware('auth');
+Route::post('/kelas/update', [KelasController::class, 'update'])->middleware('auth');
+Route::post('/kelas/delete', [KelasController::class, 'delete'])->middleware('auth');
 
 Route::get('/soal', [SoalController::class, 'index'])->middleware('auth');
 Route::get('/soal/{id}', [SoalController::class, 'detail'])->middleware('auth');
