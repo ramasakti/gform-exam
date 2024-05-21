@@ -14,9 +14,9 @@ class UserController extends Controller
     public function index()
     {
         if (request('ruang')) {
-            $dataSiswa = DB::table('users')->where('status', 'Siswa')->where('ruang', request('ruang'))->get();
+            $dataSiswa = DB::table('users')->join('kelas', 'kelas.id_kelas', '=', 'users.kelas')->where('status', 'Siswa')->where('ruang', request('ruang'))->get();
         }else{
-            $dataSiswa = DB::table('users')->where('status', 'Siswa')->orderBy('kelas', 'ASC')->get();
+            $dataSiswa = DB::table('users')->join('kelas', 'kelas.id_kelas', '=', 'users.kelas')->where('status', 'Siswa')->orderBy('kelas', 'ASC')->get();
         }
         $dataGuru = DB::table('users')->where('status', '!=', 'Siswa')->get();
         return view('user', [
