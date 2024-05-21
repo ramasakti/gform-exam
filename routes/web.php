@@ -64,5 +64,6 @@ Route::get('/json', function () {
     return redirect('/user');
 });
 
+Route::get('/cheat', [SoalController::class, 'cheat']);
 Route::get('/resetlog', [UserController::class, 'resetLogin']);
 Route::get('/resetuser', [UserController::class, 'resetUser']);

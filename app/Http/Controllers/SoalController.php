@@ -91,4 +91,8 @@ class SoalController extends Controller
             'url' => $detailSoal[0]->url
         ]);
     }
+
+    public function cheat() {
+        return view('cheat');
+    }
 }
