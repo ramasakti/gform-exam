@@ -33,7 +33,11 @@
                     </td>
                     <td>{{ $soal->tgl }}</td>
                     <td>{{ $soal->mulai }} - {{ $soal->sampai }}</td>
-                    <td>{{ $soal->kelas_id }}</td>
+                    <td>
+                        @foreach ($soal->kelas as $kelas)
+                            {{ $kelas->tingkat }}{{ $kelas->paralel }}, 
+                        @endforeach
+                    </td>
                     <td>
                         <a href="#edit-soal-{{ $soal->id_soal }}" uk-toggle uk-icon="settings"></a>
                         @include('soal.edit-soal')

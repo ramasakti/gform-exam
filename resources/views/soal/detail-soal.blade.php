@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pengerjaan Soal</title>
+    <script>
+        function konfirmasi() {
+            window.location.href = '/asda'
+            // let text = "Press a button!\nEither OK or Cancel";
+            // if (confirm(text) == true) {
+            //     text = "You pressed OK!";
+            //     window.location.href = "/"
+            // } else {
+            //     text = "You canceled!";
+            //     window.location.href = "/"
+            // }
+        }
+
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                konfirmasi()
+            }
+        });
+
+        window.addEventListener('beforeunload', function (event) {
+            // For browsers that prevent window.close() on beforeunload
+            event.preventDefault();
+            event.returnValue = '';
+        });
+
+        window.onbeforeunload = function() {
+            // For browsers that support onbeforeunload directly
+            konfirmasi()
+        };
+    </script>
 </head>
 <body>
     <style>

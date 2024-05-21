@@ -11,6 +11,17 @@ class SoalController extends Controller
     {
         $dataSoal = DB::table('soal')->orderBy('kelas_id', 'ASC')->orderBy('tgl', 'ASC')->orderBy('mulai', 'ASC')->get();
         $dataKelas = DB::table('kelas')->orderBy('tingkat', 'ASC')->orderBy('paralel', 'ASC')->get();
+
+        $results = $dataSoal->map(function($soal) use ($dataKelas) {
+            $kelasIds = explode('#', trim($soal->kelas_id, '#'));
+            $kelasList = $dataKelas->whereIn('id_kelas', $kelasIds)->values();
+        
+            $soal->kelas = $kelasList;
+            return $soal;
+        });
+
+        // dd($results);
+
         return view('soal', [
             'title' => 'Daftar Soal',
             'navactive' => 'soal',
