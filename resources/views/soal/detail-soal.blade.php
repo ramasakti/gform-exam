@@ -7,7 +7,7 @@
     <title>Pengerjaan Soal</title>
     <script>
         function konfirmasi() {
-            window.location.href = '/asda'
+            window.location.href = '/cheat'
             // let text = "Press a button!\nEither OK or Cancel";
             // if (confirm(text) == true) {
             //     text = "You pressed OK!";
