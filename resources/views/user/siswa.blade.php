@@ -15,7 +15,7 @@
                 <td>{{ $ai++ }}</td>
                 <td>{{ $siswa->username }}</td>
                 <td>{{ $siswa->nama }}</td>
-                <td>{{ $siswa->kelas }}</td>
+                <td>{{ $siswa->tingkat }}{{ $siswa->paralel }}</td>
                 <td>{{ $siswa->ruang }}</td>
                 <td>{{ $siswa->log }}</td>
             </tr> 
