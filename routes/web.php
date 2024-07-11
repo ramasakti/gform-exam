@@ -43,7 +43,7 @@ Route::post('/kelas/update', [KelasController::class, 'update'])->middleware('au
 Route::post('/kelas/delete', [KelasController::class, 'delete'])->middleware('auth');
 
 Route::get('/soal', [SoalController::class, 'index'])->middleware('auth');
-Route::get('/soal/{id}', [SoalController::class, 'detail'])->middleware('auth');
+Route::get('/soal/{id}', [SoalController::class, 'detail']);
 Route::post('/store/soal', [SoalController::class, 'store'])->middleware('auth');
 Route::post('/update/soal', [SoalController::class, 'update'])->middleware('auth');
 Route::post('/delete/soal', [SoalController::class, 'delete'])->middleware('auth');
@@ -67,3 +67,7 @@ Route::get('/json', function () {
 Route::get('/cheat', [SoalController::class, 'cheat']);
 Route::get('/resetlog', [UserController::class, 'resetLogin']);
 Route::get('/resetuser', [UserController::class, 'resetUser']);
+
+Route::get('/pramuka', function() {
+    return view('pramuka');
+});
