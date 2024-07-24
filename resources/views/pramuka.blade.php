@@ -19,7 +19,7 @@
         <h1>PreTest POTA (Penerimaan dan Orientasi Tamu Ambalan)</h1>
         <h1>Pandu DEWA - RATI</h1>
         <h1>SMA Negeri 1 Waru</h1>
-        <a class="btn btn-teal mt-3" href="https://ujian.smpislamparlaungan.sch.id/soal/xzyuqkiavmthelbw">Start</a>
+        <a class="btn btn-teal mt-3" href="https://ujian.smpislamparlaungan.sch.id/soal/qiyzkmawdorugntl">Start</a>
     </div>
 </body>
 </html>
