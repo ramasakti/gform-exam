@@ -20,15 +20,18 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $detailUser = DB::table('users')->where('username', $request->username)->get();
-            $request->session()->put('detailUser', $detailUser[0]);
+            $detailUser = DB::table('users')
+                ->join('kelas', 'kelas.id_kelas', '=', 'users.kelas')
+                ->where('username', $request->username)
+                ->first();
+            $request->session()->put('detailUser', $detailUser);
             DB::table('users')
                 ->where('username', $request->username)
                 ->update([
                     'log' => date('Y-m-d H:i:s')
                 ]);
-            if ($detailUser[0]->status === 'Pengawas') {
-                $rdrct = '/dashboard?ruang=' . $detailUser[0]->ruang;
+            if ($detailUser->status === 'Pengawas') {
+                $rdrct = '/dashboard?ruang=' . $detailUser->ruang;
                 return redirect()->intended($rdrct);
             }
             return redirect()->intended('/dashboard');
