@@ -1,5 +1,5 @@
 <x-dashboard title="{{ $title }}" navactive="{{ $navactive }}">
-    @switch(session('detailUser')->status)
+    @switch(session('user')->status)
         @case('Siswa')
             <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
                 <div>
@@ -8,9 +8,9 @@
                     </p>
                     <div class="uk-card uk-card-default uk-card-hover uk-card-body">
                         <h3 class="uk-card-title">Selamat Datang!</h3>
-                        <h6>{{ session('detailUser')->nama }}</h6>
-                        <p>Kelas: {{ session('detailUser')->tingkat . session('detailUser')->paralel }}</p>
-                        <p>Ruang: {{ session('detailUser')->ruang }}</p>
+                        <h6>{{ session('user')->nama }}</h6>
+                        <p>Kelas: {{ session('user')->tingkat . session('user')->paralel }}</p>
+                        <p>Ruang: {{ session('user')->ruang }}</p>
                     </div>
                 </div>
                 <div>

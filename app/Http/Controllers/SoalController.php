@@ -86,13 +86,16 @@ class SoalController extends Controller
 
     public function detail($id)
     {
-        $detailSoal = DB::table('soal')->where('id_soal', $id)->get();
+        $detailSoal = DB::table('soal')->where('id_soal', $id)->first();
         return view('soal.detail-soal', [
-            'url' => $detailSoal[0]->url
+            'url' => $detailSoal->url
         ]);
     }
 
-    public function cheat() {
+    public function cheat(Request $request) {
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        $request->session()->forget('user');
         return view('cheat');
     }
 }

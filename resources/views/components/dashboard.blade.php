@@ -58,7 +58,7 @@
                                     <span>Dashboard</span>
                                 </a>
                             </li>
-                            @switch(session('detailUser')->status)
+                            @switch(session('user')->status)
                                 @case('Admin')
                                     <li class="{{ ($navactive === 'user' ? 'active' : '') }}">
                                         <a href="/user"><span>User</span></a>
@@ -72,7 +72,7 @@
                                     @break
                                 @case('Pengawas')
                                     <li class="{{ ($navactive === 'user' ? 'active' : '') }}">
-                                        <a href="/user?ruang={{ session('detailUser')->ruang }}"><span>User</span></a>
+                                        <a href="/user?ruang={{ session('user')->ruang }}"><span>User</span></a>
                                     </li>
                                     @break
                                 @default
@@ -118,7 +118,7 @@
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="/adminlte/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ session('detailUser')->nama }}<i class="fa fa-angle-down"></i></h4>
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ session('user')->nama }}<i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="/logout">Log Out</a>
                             </div>

@@ -1,5 +1,5 @@
 <x-dashboard title="{{ $title }}" navactive="{{ $navactive }}">
-    @if (session('detailUser')->status === 'Admin')     
+    @if (session('user')->status === 'Admin')     
         <a class="uk-margin uk-margin-small-right" href="#modal-center" uk-toggle uk-icon="upload"></a>
         @include('user.import-user')
         <a class="uk-margin uk-margin-small-right" href="#add-user" uk-toggle uk-icon="plus"></a>
@@ -8,6 +8,8 @@
         @include('user.reset-log')
         <a class="uk-margin uk-margin-small-right" href="#reset-user" uk-toggle uk-icon="trash"></a>
         @include('user.reset-user')
+        <a class="uk-margin uk-margin-small-right" href="#hit-user" uk-toggle uk-icon="sign-in"></a>
+        @include('user.hit-user')
     @endif
 
     @if (session()->has('success'))
@@ -19,7 +21,7 @@
     
     <ul uk-tab>
         <li><a href="#">Siswa</a></li>
-        @if (session('detailUser')->status === 'Admin')
+        @if (session('user')->status === 'Admin')
             <li><a href="#">Guru</a></li>
         @endif
     </ul>

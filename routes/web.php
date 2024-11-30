@@ -35,6 +35,8 @@ Route::get('/home', function () {
 
 Route::get('/user', [UserController::class, 'index'])->middleware('auth');
 Route::post('/store/user', [UserController::class, 'store'])->middleware('auth');
+Route::post('/update/user/{username}', [UserController::class, 'update'])->middleware('auth');
+Route::post('/update/user', [UserController::class, 'hit'])->middleware('auth');
 Route::post('/import', [UserController::class, 'importExcel'])->middleware('auth');
 
 Route::get('/kelas', [KelasController::class, 'index'])->middleware('auth');

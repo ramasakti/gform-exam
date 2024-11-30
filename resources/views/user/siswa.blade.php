@@ -6,7 +6,9 @@
             <th>Nama</th>
             <th>Kelas</th>
             <th>Ruang</th>
+            <th>Login</th>
             <th>Log</th>
+            <th>Handler</th>
         </tr>
     </thead>
     <tbody>
@@ -17,7 +19,12 @@
                 <td>{{ $siswa->nama }}</td>
                 <td>{{ $siswa->tingkat }}{{ $siswa->paralel }}</td>
                 <td>{{ $siswa->ruang }}</td>
+                <td>{{ $siswa->hit }}</td>
                 <td>{{ $siswa->log }}</td>
+                <td>
+                    <a href="#edit-user-{{ $siswa->username }}" uk-toggle uk-icon="file-edit"></a>
+                    @include('user.edit-user')
+                </td>
             </tr> 
         @endforeach
     </tbody>

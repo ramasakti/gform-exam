@@ -20,20 +20,31 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $detailUser = DB::table('users')
+            // Ambil data user
+            $user = DB::table('users')
                 ->leftJoin('kelas', 'kelas.id_kelas', '=', 'users.kelas')
                 ->where('username', $request->username)
                 ->first();
-            $request->session()->put('detailUser', $detailUser);
-            DB::table('users')
-                ->where('username', $request->username)
-                ->update([
-                    'log' => date('Y-m-d H:i:s')
-                ]);
-            if ($detailUser->status === 'Pengawas') {
-                $rdrct = '/dashboard?ruang=' . $detailUser->ruang;
+
+            // Masukkan ke session
+            $request->session()->put('user', $user);
+
+            // Update status login
+            if ($user->status === 'Siswa') {
+                DB::table('users')
+                    ->where('username', $request->username)
+                    ->update([
+                        'hit' => $user->hit - 1,
+                        'log' => date('Y-m-d H:i:s')
+                    ]);
+            }
+
+            // Cek role
+            if ($user->status === 'Pengawas') {
+                $rdrct = '/dashboard?ruang=' . $user->ruang;
                 return redirect()->intended($rdrct);
             }
+
             return redirect()->intended('/dashboard');
         }else{
             return back()->with('fail', 'Username atau Password salah!');
@@ -44,13 +55,24 @@ class LoginController extends Controller
     {
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        $request->session()->forget('detailUser');
+        $request->session()->forget('user');
         return redirect()->intended('/');
     }
 
     public function dashboard(Request $request)
     {
-        $kelas = '%'. $request->session()->get('detailUser')->kelas .'%';
+        if (session('user')->status === 'Siswa') {
+            $hit = DB::table('users')->where('username', session('user')->username)->first();
+
+            if ($hit->hit < 1) {
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                $request->session()->forget('user');
+                return back()->with('fail', 'Anda sudah login lebih dari 3 kali!');
+            }
+        }
+
+        $kelas = '%'. $request->session()->get('user')->kelas .'%';
         $dataSoal = DB::table('soal')
                         ->where('tgl', date('Y-m-d'))
                         ->where('kelas_id', 'like', $kelas)

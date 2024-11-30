@@ -69,6 +69,28 @@ class UserController extends Controller
         return back()->with('success', 'Berhasil tambah user!');
     }
 
+    public function update(Request $request, $username)
+    {
+        DB::table('users')
+            ->where('username', $username)
+            ->update([
+                'hit' => $request->hit
+            ]);
+
+        return back()->with('success', 'Berhasil update login!'); 
+    }
+
+    public function hit(Request $request)
+    {
+        DB::table('users')
+            ->where('status', 'Siswa')
+            ->update([
+                'hit' => $request->hit
+            ]);
+
+        return back()->with('success', 'Berhasil update login!'); 
+    }
+
     public function resetUser()
     {
         DB::table('users')->where('status', '!=', 'Admin')->delete();
