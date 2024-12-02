@@ -2,7 +2,7 @@
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <h5>Reset Login Siswa</h5>
-        <form action="/update/user/" method="post" enctype="multipart/form-data">
+        <form action="/update/user" method="post" enctype="multipart/form-data">
             @csrf
             <div class="uk-margin">
                 <input class="uk-input" name="hit" type="text" placeholder="Jumlah Login">
