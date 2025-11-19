@@ -37,6 +37,7 @@ class KelasController extends Controller
             ->where('id_kelas', $request->id_kelas)
             ->update([
                 'tingkat' => $request->tingkat,
+                'paralel' => $request->paralel,
                 'walas' => '-', 
             ]);
         return back()->with('success', 'Berhasil mengedit kelas!');
