@@ -17,19 +17,7 @@
             </div>
             <label for="paralel">PARALEL</label>
             <div class="uk-margin uk-margin-remove-top">
-                <select name="paralel" class="uk-select" aria-label="Select">
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D">D</option>
-                    <option value="MIPA">MIPA</option>
-                    <option value="IIS">IIS</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                <input type="text" class="form-control" name="paralel">
             </div>
             <input type="hidden" name="walas" value="-">
             <button type="submit" class="uk-button uk-button-primary uk-width-1-1">SIMPAN</button>

@@ -19,19 +19,7 @@
             <div class="uk-margin">
                 <label for="paralel">Paralel</label>
                 <div class="uk-margin uk-margin-remove-top">
-                    <select name="paralel" class="uk-select" aria-label="Select">
-                        <option {{ ($kelas->paralel == 'A') ? 'selected' : '' }} value="A">A</option>
-                        <option {{ ($kelas->paralel == 'B') ? 'selected' : '' }} value="B">B</option>
-                        <option {{ ($kelas->paralel == 'C') ? 'selected' : '' }} value="C">C</option>
-                        <option {{ ($kelas->paralel == 'D') ? 'selected' : '' }} value="D">D</option>
-                        <option {{ ($kelas->paralel == 'MIPA') ? 'selected' : '' }} value="MIPA">MIPA</option>
-                        <option {{ ($kelas->paralel == 'IIS') ? 'selected' : '' }} value="IIS">IIS</option>
-                        <option {{ ($kelas->paralel == '1') ? 'selected' : '' }} value="1">1</option>
-                        <option {{ ($kelas->paralel == '2') ? 'selected' : '' }} value="2">2</option>
-                        <option {{ ($kelas->paralel == '3') ? 'selected' : '' }} value="3">3</option>
-                        <option {{ ($kelas->paralel == '4') ? 'selected' : '' }} value="4">4</option>
-                        <option {{ ($kelas->paralel == '5') ? 'selected' : '' }} value="5">5</option>
-                    </select>
+                    <input type="text" class="form-control" name="paralel" value="{{ $kelas->paralel }}">
                 </div>
             </div>
             <button type="submit" class="uk-button uk-button-primary uk-width-1-1">SIMPAN</button>

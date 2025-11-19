@@ -7,7 +7,7 @@
     <meta name="author" content="Staf Data, Informasi, Pengembangan dan Infrastruktur Teknologi - SMA Islam Parlaugan">
     <!-- PWA  -->
     <meta name="theme-color" content="#FFFFFF"/>
-    <link rel="apple-touch-icon" href="{{ asset('/img/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ env('APP_LOGO') ?? asset('/img/logo.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
     <title>Login</title>
@@ -81,7 +81,7 @@
         <div class="container">
             <form action="/login" method="POST">
                 @csrf
-                <img class="mt-4 mb-4" src="/img/logo.png" alt="" width="20%">
+                <img class="mt-4 mb-4" src="{{ env('APP_LOGO') ?? '/img/logo.png' }}" alt="" width="20%">
                 <h1 class="h3 mb-3 fw-normal">Login</h1>
                 @if (session()->has('fail'))
                     <div class="uk-alert-danger" uk-alert>
