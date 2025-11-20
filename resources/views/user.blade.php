@@ -1,5 +1,5 @@
 <x-dashboard title="{{ $title }}" navactive="{{ $navactive }}">
-    @if (session('user')->status === 'Admin')     
+    @if (session('user')->status === 'Admin')
         <a class="uk-margin uk-margin-small-right" href="#modal-center" uk-toggle uk-icon="upload"></a>
         @include('user.import-user')
         <a class="uk-margin uk-margin-small-right" href="#add-user" uk-toggle uk-icon="plus"></a>
@@ -12,13 +12,29 @@
         @include('user.hit-user')
     @endif
 
-    @if (session()->has('success'))
-        <div class="uk-alert-success" uk-alert>
-            <a class="uk-alert-close" uk-close></a>
-            <p>{{ session('success') }}</p>
+    @if (session('success'))
+        <div class="alert alert-success">
+            <strong>Berhasil:</strong>
+            <ul>
+                @foreach (session('success') as $msg)
+                    <li>{{ $msg }}</li>
+                @endforeach
+            </ul>
         </div>
     @endif
-    
+
+    @if (session('errors'))
+        <div class="alert alert-danger">
+            <strong>Terjadi Kesalahan:</strong>
+            <ul>
+                @foreach (session('errors') as $msg)
+                    <li>{{ $msg }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
     <ul uk-tab>
         <li><a href="#">Siswa</a></li>
         @if (session('user')->status === 'Admin')

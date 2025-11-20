@@ -34,6 +34,8 @@ Route::get('/home', function () {
 })->middleware('auth');
 
 Route::get('/user', [UserController::class, 'index'])->middleware('auth');
+Route::get('/user/template', [UserController::class, 'download'])->middleware('auth');
+Route::post('/user/upload', [UserController::class, 'upload'])->middleware('auth');
 Route::post('/store/user', [UserController::class, 'store'])->middleware('auth');
 Route::post('/update/user/{username}', [UserController::class, 'update'])->middleware('auth');
 Route::post('/update/user', [UserController::class, 'hit'])->middleware('auth');

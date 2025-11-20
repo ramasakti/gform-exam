@@ -1,5 +1,7 @@
 <x-dashboard title="{{ $title }}" navactive="{{ $navactive }}">
-    <a uk-icon="icon: plus" href="#add-kelas" uk-toggle></a>
+    <a class="uk-button uk-button-default" href="#add-kelas" uk-toggle>
+        Tambah Kelas
+    </a>
     @include('kelas.add-kelas')
     <table class="uk-table uk-table-hover uk-table-divider">
         <thead>
