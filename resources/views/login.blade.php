@@ -80,7 +80,7 @@
     <main class="form-signin w-100 m-auto">
         <div class="container">
             <form action="/login" method="POST">
-                @csrf
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <img class="mt-4 mb-4" src="{{ env('APP_LOGO') ?? '/img/logo.png' }}" alt="" width="20%">
                 <h1 class="h3 mb-3 fw-normal">Login</h1>
                 @if (session()->has('fail'))
