@@ -15,11 +15,17 @@
     @if (session('success'))
         <div class="alert alert-success">
             <strong>Berhasil:</strong>
-            <ul>
-                @foreach (session('success') as $msg)
-                    <li>{{ $msg }}</li>
-                @endforeach
-            </ul>
+            @if (gettype(session('success')) === 'string')
+                <ul>
+                    <li>{{ session('success') }}</li>
+                </ul>
+            @else
+                <ul>
+                    @foreach (session('success') as $msg)
+                        <li>{{ $msg }}</li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     @endif
 
