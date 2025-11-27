@@ -23,6 +23,10 @@
                 Sampai
                 <input class="uk-input" name="sampai" type="time" placeholder="Sampai" aria-label="Sampai" value="{{ $soal->sampai }}" required>
             </div>
+            <div class="uk-margin">
+                Waktu Aktif (Menit)
+                <input class="uk-input" name="menit_aktif" type="number" min="1" value="{{ $soal->menit_aktif }}" aria-label="Menit Aktif" required>
+            </div>
             <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
                 @foreach ($dataKelas as $kelas)
                     @php

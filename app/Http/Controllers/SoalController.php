@@ -49,6 +49,7 @@ class SoalController extends Controller
                 'mulai' => $request->mulai,
                 'sampai' => $request->sampai,
                 'isactive' => $isactive,
+                'menit_aktif' => $request->menit_aktif,
                 'kelas_id' => $kelas
             ]);
         return back()->with('success', 'Berhasil menambahkan soal!');
@@ -70,6 +71,7 @@ class SoalController extends Controller
                 'tgl' => $request->tgl,
                 'mulai' => $request->mulai,
                 'sampai' => $request->sampai,
+                'menit_aktif' => $request->menit_aktif,
                 'isactive' => $isactive,
                 'kelas_id' => $kelas,
             ]);

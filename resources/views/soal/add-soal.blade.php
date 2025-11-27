@@ -22,6 +22,10 @@
                 Sampai
                 <input class="uk-input" name="sampai" type="time" placeholder="Sampai" aria-label="Sampai" required>
             </div>
+            <div class="uk-margin">
+                Waktu Aktif (Menit)
+                <input class="uk-input" name="menit_aktif" type="number" min="1" placeholder="Menit Aktif" aria-label="Menit Aktif" required>
+            </div>
             <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
                 @foreach ($dataKelas as $kelas)
                     <label><input class="uk-checkbox" name="kelas[]" type="checkbox" value="{{ $kelas->id_kelas }}"> {{ $kelas->tingkat }} {{ $kelas->paralel }}</label>

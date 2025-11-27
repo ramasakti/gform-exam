@@ -16,6 +16,7 @@
                 <th>Tanggal</th>
                 <th>Waktu</th>
                 <th>Kelas</th>
+                <th>Waktu Aktif (Menit)</th>
                 <th>Handler</th>
             </tr>
         </thead>
@@ -38,6 +39,7 @@
                             {{ $kelas->tingkat }}{{ $kelas->paralel }}, 
                         @endforeach
                     </td>
+                    <td>{{ $soal->menit_aktif }}</td>
                     <td>
                         <a href="#edit-soal-{{ $soal->id_soal }}" uk-toggle uk-icon="settings"></a>
                         @include('soal.edit-soal')
