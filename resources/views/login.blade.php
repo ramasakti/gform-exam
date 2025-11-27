@@ -7,7 +7,7 @@
     <meta name="author" content="Staf Data, Informasi, Pengembangan dan Infrastruktur Teknologi - SMA Islam Parlaugan">
     <!-- PWA  -->
     <meta name="theme-color" content="#FFFFFF"/>
-    <link rel="apple-touch-icon" href="{{ env('APP_LOGO') ?? asset('/img/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ env('APP_LOGO') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
     <title>Login</title>

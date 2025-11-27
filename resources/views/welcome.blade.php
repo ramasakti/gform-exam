@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- PWA  -->
         <meta name="theme-color" content="#FFFFFF"/>
-        <link rel="apple-touch-icon" href="{{ env('APP_LOGO') ?? asset('/img/logo.png') }}">
+        <link rel="apple-touch-icon" href="{{ env('APP_LOGO') }}">
         <link rel="manifest" href="{{ asset('/manifest.json') }}">
         <title>Laravel</title>
 
