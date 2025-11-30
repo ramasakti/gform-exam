@@ -56,6 +56,7 @@ class UserController extends Controller
         DB::table('users')
             ->where('username', $username)
             ->update([
+                'kelas' => $request->kelas,
                 'hit' => $request->hit
             ]);
 

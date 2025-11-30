@@ -10,6 +10,15 @@
             <div class="uk-margin">
                 <input class="uk-input" name="hit" type="text" value="{{ $siswa->hit }}">
             </div>
+            @if ($siswa->status === 'Siswa')
+                <div class="uk-margin">
+                    <select name="kelas" class="uk-select">
+                        @foreach ($dataKelas as $k)
+                            <option value="{{ $k->id_kelas }}" @selected($k->id_kelas === $siswa->kelas)>{{ $k->tingkat }} {{ $k->paralel }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endif
             <button type="submit" class="uk-button uk-button-primary uk-width-1-1">Simpan</button>
         </form>
     </div>
