@@ -27,7 +27,7 @@ Route::get('/', function (Request $request) {
 })->name('login');
 
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
-Route::get('/dashboard', [LoginController::class, 'dashboard'])->middleware('auth');
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->middleware(['auth', 'iframe.header']);
 Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::get('/home', function () {
     return redirect('/dashboard');
@@ -47,7 +47,7 @@ Route::post('/kelas/update', [KelasController::class, 'update'])->middleware('au
 Route::post('/kelas/delete', [KelasController::class, 'delete'])->middleware('auth');
 
 Route::get('/soal', [SoalController::class, 'index'])->middleware('auth');
-Route::get('/soal/{id}', [SoalController::class, 'detail']);
+Route::get('/soal/{id}', [SoalController::class, 'detail'])->middleware('iframe.header');
 Route::post('/store/soal', [SoalController::class, 'store'])->middleware('auth');
 Route::post('/update/soal', [SoalController::class, 'update'])->middleware('auth');
 Route::post('/delete/soal', [SoalController::class, 'delete'])->middleware('auth');
