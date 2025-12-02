@@ -20,7 +20,7 @@ use App\Http\Controllers\KelasController;
 */
 
 Route::get('/', function (Request $request) {
-    if ($request->session()->has('detailUser')) {
+    if ($request->session()->has('user')) {
         return redirect('/dashboard');
     }
     return view('login');
