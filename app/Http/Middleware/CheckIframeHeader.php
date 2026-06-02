@@ -17,7 +17,21 @@ class CheckIframeHeader
             !$isSEB &&
             session('user')->status === 'Siswa'
         ) {
-            abort(403, 'Forbidden');
+            $browser = 'Unknown';
+
+            if (str_contains($userAgent, 'Edg/')) {
+                $browser = 'Microsoft Edge';
+            } elseif (str_contains($userAgent, 'Firefox/')) {
+                $browser = 'Mozilla Firefox';
+            } elseif (str_contains($userAgent, 'Chrome/')) {
+                $browser = 'Google Chrome';
+            } elseif (str_contains($userAgent, 'Safari/')) {
+                $browser = 'Safari';
+            }
+
+            return response()->view('forbidden', [
+                'browser' => $browser
+            ]);
         }
 
         return $next($request);
