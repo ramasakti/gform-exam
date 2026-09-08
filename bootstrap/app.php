@@ -1,7 +1,7 @@
 <?php
 
-use App\Providers\AppServiceProvider;
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -19,10 +19,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectGuestsTo(fn () => route('login'));
         $middleware->redirectUsersTo(fn () => route('dashboard'));
     })
+    ->withExceptions(function (Exceptions $exceptions): void {
+        //
+    })
     ->withSchedule(function ($schedule): void {
         $schedule->command('soal:check-status')->everyMinute();
     })
-    ->withProviders([
-        AppServiceProvider::class,
-    ])
     ->create();

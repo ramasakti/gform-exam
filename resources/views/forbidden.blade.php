@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id" class="h-full bg-slate-950">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Akses Ditolak</title>
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.3/dist/css/uikit.min.css" />
-    <link rel="shortcut icon" type="image/png" href="/adminlte/images/icon/favicon.ico">
-    <link rel="stylesheet" href="/adminlte/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/adminlte/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/adminlte/css/themify-icons.css">
-    <link rel="stylesheet" href="/adminlte/css/metisMenu.css">
-    <link rel="stylesheet" href="/adminlte/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/adminlte/css/slicknav.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1 class="text-center">Anda Terdeteksi Tidak Menggunakan Browser yang Diizinkan!</h1>
-    <p class="text-center">Browser yang anda gunakan: <strong>{{ $browser }}</strong></p>
+<body class="min-h-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-slate-100">
+    <div class="flex min-h-screen items-center justify-center px-4">
+        <div class="w-full max-w-xl rounded-3xl border border-white/10 bg-white/5 p-8 text-center shadow-2xl backdrop-blur">
+            <p class="text-sm uppercase tracking-[0.3em] text-cyan-300">Access blocked</p>
+            <h1 class="mt-4 text-3xl font-semibold">Anda terdeteksi tidak menggunakan browser yang diizinkan</h1>
+            <p class="mt-3 text-slate-300">Browser yang anda gunakan: <strong>{{ $browser }}</strong></p>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,10 +1,9 @@
-<div id="reset-log" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <h5>Reset Log User?</h5>
-        <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <a href="/resetlog"><button class="uk-button uk-button-primary">Ya</button></a>
+<div id="reset-log" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/40 px-4 py-8">
+    <div class="w-full max-w-md rounded border border-slate-200 bg-white p-5 text-slate-800 shadow-lg text-xs">
+        <h5 class="text-base font-semibold text-slate-900">Reset Log User?</h5>
+        <div class="mt-4 flex justify-end gap-2">
+            <button class="rounded border border-slate-300 bg-white px-3 py-2 text-slate-700 hover:bg-slate-50" type="button">Cancel</button>
+            <a href="/resetlog" class="rounded bg-indigo-600 px-3 py-2 font-semibold text-white hover:bg-indigo-700">Ya</a>
         </div>
     </div>
 </div>
